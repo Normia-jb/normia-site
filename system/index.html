@@ -1,22 +1,90 @@
-<div class="wrap">
-  <h1>System</h1>
-  <p class="meta"><span class="pill">NORMIA-SYS-0001</span> · v1.0 · Gjeldende</p>
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>System – NORMIA</title>
+</head>
+<body>
 
-  <h2>Systemprinsipp</h2>
-  <p>NORMIA etablerer entydig sammenheng mellom krav, utførelse og dokumentasjon. Ingenting anses som levert før det er definert, utført, kontrollert, dokumentert og arkivert.</p>
+  <header>
+    <p>
+      <strong>NORMIA</strong> ·
+      <a href="/system/">System</a> ·
+      <a href="/metodikk/">Metodikk</a> ·
+      <a href="/eksempel/">Eksempel</a> ·
+      <a href="/bruk/">Bruk</a> ·
+      <a href="/revisjoner/">Revisjoner</a>
+    </p>
 
-  <h2>Objekt- og ID-logikk</h2>
-  <p>Alle elementer behandles som objekter med entydig identitet, ansvar og status. ID-en er bærer av sporbarhet.</p>
+    <h1>System</h1>
 
-  <h2>Dokumenthierarki</h2>
-  <p>Dokumentasjon er strukturert og knyttet til objekter og kontrollpunkter. Dokumenter uten definert tilknytning anses ikke som gyldig dokumentasjon.</p>
+    <p>
+      <strong>NORMIA-SYS-0001</strong> · <strong>v1.0</strong> · <strong>Gjeldende</strong>
+    </p>
+  </header>
 
-  <h2>Revisjon og endringskontroll</h2>
-  <p>Endringer håndteres gjennom formell revisjon. Tidligere revisjoner slettes ikke, men arkiveres som historikk.</p>
+  <main>
+    <section>
+      <h2>Systemprinsipp</h2>
+      <p>
+        NORMIA etablerer entydig sammenheng mellom krav, utførelse og dokumentasjon.
+        Ingenting anses som levert før det er definert, utført, kontrollert, dokumentert og arkivert.
+      </p>
+    </section>
 
-  <h2>Status og sporbarhet</h2>
-  <p>Status spores til tidspunkt, ansvarlig rolle og dokumentasjon. Systemet muliggjør presise svar på hva, når, av hvem og på hvilket grunnlag.</p>
+    <section>
+      <h2>Objekt- og ID-logikk</h2>
+      <p>
+        Alle elementer behandles som objekter med entydig identitet, ansvar og status.
+        ID-en er bærer av sporbarhet og binder sammen prosjektering, utførelse, kontroll og FDV.
+      </p>
+      <p>
+        Eksempel: <code>NORMIA-EKS-0001-O-04</code> (objekt) → <code>…-KON-004</code> (kontrollpunkt) → <code>…-DOK-PR-001</code> (dokument).
+      </p>
+    </section>
 
-  <h2>PDF</h2>
-  <p><a href="/pdf/NORMIA-SYS-0001_v1.0.pdf">Last ned PDF</a> (legges i /pdf)</p>
-</div>
+    <section>
+      <h2>Dokumenthierarki</h2>
+      <p>
+        Dokumentasjon er strukturert og knyttet til objekter og kontrollpunkter.
+        Dokumenter uten definert tilknytning anses ikke som gyldig dokumentasjon.
+      </p>
+      <ul>
+        <li><strong>Prosjektering</strong>: kravgrunnlag, valg, forutsetninger</li>
+        <li><strong>Utførelse</strong>: arbeidsrekkefølge, kritiske punkter, egenkontroll</li>
+        <li><strong>Kontroll</strong>: verifikasjon mot kriterier, avvik og lukking</li>
+        <li><strong>FDV</strong>: overlevering, drift og revisjonssikker historikk</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Revisjon og endringskontroll</h2>
+      <p>
+        Endringer håndteres gjennom formell revisjon. Tidligere revisjoner slettes ikke,
+        men arkiveres som historikk. Gjeldende versjon skal alltid være entydig.
+      </p>
+      <p>
+        Se <a href="/revisjoner/">Revisjoner</a> for endringshistorikk.
+      </p>
+    </section>
+
+    <section>
+      <h2>Status og sporbarhet</h2>
+      <p>
+        Status spores til tidspunkt, ansvarlig rolle og dokumentasjon. Systemet muliggjør presise svar på:
+        hva, når, av hvem og på hvilket grunnlag.
+      </p>
+      <p><strong>Systemlogikk:</strong> Objekt → Dokument → Kontrollpunkt → Status → Arkiv</p>
+    </section>
+
+    <section>
+      <h2>PDF</h2>
+      <p>
+        Last ned PDF (legges i <code>/pdf</code>): <a href="/pdf/">Åpne PDF-arkiv</a>
+      </p>
+    </section>
+  </main>
+
+</body>
+</html>
