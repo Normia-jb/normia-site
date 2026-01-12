@@ -1,51 +1,124 @@
 <!doctype html>
 <html lang="no">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kontroll – Metodikk – NORMIA</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NORMIA – Metodikk: Kontroll (v1.0)</title>
+  <meta name="description" content="NORMIA – Kontroll: systematisk verifisering av prosjektert og utført løsning." />
+  <style>
+    :root { --max: 980px; }
+    body { margin:0; font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
+    header, main, footer { padding: 24px; }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+    nav a { margin-right: 14px; text-decoration:none; color:#111; }
+    nav a:hover { text-decoration:underline; }
+    a { color:#111; }
+    a:hover { text-decoration: underline; }
+    .meta { color:#444; font-size: 14px; }
+    h1 { font-size: 34px; line-height:1.15; margin: 10px 0 10px; }
+    h2 { margin-top: 26px; }
+    .pill { display:inline-block; padding: 2px 10px; border:1px solid #ddd; border-radius: 999px; font-size: 12px; color:#444; }
+    .hr { height:1px; background:#eee; margin: 18px 0; }
+    footer { border-top:1px solid #eee; }
+    .method-nav { margin:12px 0 18px; }
+  </style>
 </head>
 <body>
-
-  <header>
-    <p>
-      <strong>NORMIA</strong> ·
-      <a href="/">Hjem</a> ·
-      <a href="/metodikk/">Metodikk</a> ·
+<header>
+  <div class="wrap">
+    <div class="meta"><span class="pill">NORMIA v1.0</span> · <a href="/revisjoner/">Revisjoner</a></div>
+    <nav style="margin-top:14px">
+      <a href="/system/">System</a>
+      <a href="/metodikk/">Metodikk</a>
+      <a href="/eksempel/">Eksempel</a>
+      <a href="/bruk/">Bruk</a>
       <a href="/revisjoner/">Revisjoner</a>
-    </p>
-    <h1>Kontroll</h1>
-    <p>
-      Kontroll verifiserer at prosjektert løsning er korrekt utført og dokumentert. Kontroll skal være
-      sporbar i tid, sted og ansvar, og egnet for tredjepart.
-    </p>
-  </header>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section>
-      <h2>Minimumskrav</h2>
-      <ul>
-        <li>Kontrollpunkt skal ha kriterier for OK/avvik</li>
-        <li>Kontroll skal verifisere system – ikke bare synlig utførelse</li>
-        <li>Avvik skal ha lukking med dokumentasjon</li>
-        <li>Resultat skal kunne arkiveres og gjenfinnes på ID og revisjon</li>
-      </ul>
-    </section>
+<main>
+  <div class="wrap">
+    <h1>NORMIA – Kontroll</h1>
 
-    <section>
-      <h2>Kontrolltyper</h2>
-      <ul>
-        <li>Egenkontroll (utførende)</li>
-        <li>Uavhengig kontroll / tredjepart (der relevant)</li>
-        <li>Befaring og overtakelse (sluttkontroll)</li>
-      </ul>
-    </section>
+    <nav class="meta method-nav">
+      <a href="/metodikk/prosjektering/">Prosjektering</a> ·
+      <a href="/metodikk/utforelse/">Utførelse</a> ·
+      <a href="/metodikk/kontroll/">Kontroll</a> ·
+      <a href="/metodikk/fdv/">FDV</a>
+    </nav>
 
-    <section>
-      <h2>Status</h2>
-      <p>Innhold er under etablering. Denne siden er primær inngang for gjeldende kontrollmetodikk.</p>
-    </section>
-  </main>
+    <p class="meta"><span class="pill">NORMIA-MET-KON-0001</span> · v1.0 · Gjeldende</p>
 
+    <p><em>Denne metodikken beskriver hvordan NORMIA sikrer etterprøvbar og dokumentert kontroll av både løsning og prosess. Innholdet er normerende og skal kunne brukes direkte i utførelse, overtakelse og videre drift.</em></p>
+
+    <h2>Formål</h2>
+    <p>NORMIA – Kontroll er metodikken for <strong>verifisering av at prosjektert løsning er korrekt utført og dokumentert</strong>. Metodikken skal sikre at beslutninger, utførelse og dokumentasjon danner et sammenhengende og pålitelig grunnlag for overtakelse, FDV og senere vurderinger.</p>
+    <p>Kontroll i NORMIA er ikke en visuell inspeksjon, men en <strong>verifikasjon av system</strong>.</p>
+
+    <h2>Metodikkens rolle i NORMIA</h2>
+    <p>Kontroll utgjør verifikasjonsleddet i NORMIA-kjeden: prosjektering definerer hva som skal bygges, utførelse dokumenterer hva som er gjort, kontroll verifiserer samsvar, og FDV baseres på kontrollert grunnlag.</p>
+    <p>Uten kontroll finnes det ingen dokumentert sikkerhet for at det som er bygget samsvarer med det som er besluttet.</p>
+
+    <h2>Grunnprinsipper</h2>
+    <p>All kontroll etter NORMIA skal:</p>
+    <ul>
+      <li>baseres på dokumentert prosjektering og utførelse</li>
+      <li>verifisere både løsning og prosess</li>
+      <li>skille tydelig mellom egenkontroll og uavhengig kontroll</li>
+      <li>dokumentere både samsvar og avvik</li>
+      <li>være sporbar i tid, sted og ansvar</li>
+    </ul>
+    <p>Kontroll utføres for å avdekke systemsvikt, ikke for å bekrefte antakelser.</p>
+
+    <h2>Typer kontroll</h2>
+    <p>NORMIA skiller eksplisitt mellom følgende kontrollformer:</p>
+    <ul>
+      <li><strong>Egenkontroll</strong> – utføres av ansvarlig utførende fag</li>
+      <li><strong>Intern kontroll</strong> – utføres av produksjons- eller faglig ansvarlig</li>
+      <li><strong>Uavhengig kontroll / tredjepart</strong> – utføres ved krav i prosjekt, regelverk eller kontrakt</li>
+    </ul>
+    <p>Grunnlaget for kontroll er alltid NORMIA-dokumentasjonen, ikke skjønnsmessig befaring alene.</p>
+
+    <h2>Kontrollens struktur</h2>
+    <p>Hver kontrollaktivitet skal minimum omfatte:</p>
+    <ul>
+      <li><strong>Kontrollgrunnlag</strong> (referanse til prosjektering/utførelse, gjeldende revisjon)</li>
+      <li><strong>Kontrollomfang</strong> (objekter/soner, krav, avgrensninger)</li>
+      <li><strong>Kontrollkriterier</strong> (OK/ikke OK, dokumentasjonskrav)</li>
+      <li><strong>Avvik og håndtering</strong> (årsak, konsekvens, tiltak, frist, verifisert lukking)</li>
+      <li><strong>Konklusjon</strong> (samlet vurdering, restpunkter, beslutningsgrunnlag)</li>
+    </ul>
+
+    <h2>Roller og ansvar</h2>
+    <p>Kontroll etter NORMIA har entydig plassert ansvar:</p>
+    <ul>
+      <li><strong>Utførende fag</strong> – korrekt egenkontroll og dokumentasjon</li>
+      <li><strong>Kontrollansvarlig</strong> – planlegging, gjennomføring og dokumentasjon</li>
+      <li><strong>Byggherre / oppdragsgiver</strong> – beslutninger basert på dokumenterte funn</li>
+    </ul>
+    <p>Kontrollansvar kan ikke delegeres uformelt.</p>
+
+    <h2>Avvikshåndtering</h2>
+    <p>Alle avvik skal dokumenteres skriftlig, knyttes til konkret krav og objekt, ha definert ansvar og frist, og verifiseres lukket før videre fremdrift.</p>
+    <p><em>Avvik som ikke er lukket, anses som ikke akseptert risiko.</em></p>
+
+    <h2>Når brukes NORMIA – Kontroll</h2>
+    <p>Metodikken brukes i alle prosjekter hvor kvalitet skal kunne dokumenteres, flere fag og aktører samhandler, og feil har økonomiske, tekniske eller juridiske konsekvenser. Dette gjelder særlig rehabilitering, våtrom, tekniske anlegg og serieproduksjon.</p>
+
+    <h2>Avslutning</h2>
+    <p><em>Denne metodikken er normerende for prosjekter som følger NORMIA. Avvik fra metodikken skal være eksplisitt besluttet og dokumentert.</em></p>
+
+    <div class="hr"></div>
+
+    <p class="meta"><strong>PDF:</strong> <a href="/pdf/NORMIA-MET-KON-0001_v1.0.pdf">Last ned gjeldende versjon</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap meta">
+    <div>NORMIA v1.0 · Endringer kun via formell revisjon · <a href="/revisjoner/">Revisjonsoversikt</a></div>
+  </div>
+</footer>
 </body>
 </html>
