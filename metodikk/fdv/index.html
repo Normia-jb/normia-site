@@ -1,53 +1,119 @@
 <!doctype html>
 <html lang="no">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>FDV – Metodikk – NORMIA</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NORMIA – Metodikk: FDV (v1.0)</title>
+  <meta name="description" content="NORMIA – FDV: strukturert overlevering basert på dokumentert prosjektering, utførelse og kontroll." />
+  <style>
+    :root { --max: 980px; }
+    body { margin:0; font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
+    header, main, footer { padding: 24px; }
+    .wrap { max-width: var(--max); margin: 0 auto; }
+    nav a { margin-right: 14px; text-decoration:none; color:#111; }
+    nav a:hover { text-decoration:underline; }
+    a { color:#111; }
+    a:hover { text-decoration: underline; }
+    .meta { color:#444; font-size: 14px; }
+    h1 { font-size: 34px; line-height:1.15; margin: 10px 0 10px; }
+    h2 { margin-top: 26px; }
+    .pill { display:inline-block; padding: 2px 10px; border:1px solid #ddd; border-radius: 999px; font-size: 12px; color:#444; }
+    .hr { height:1px; background:#eee; margin: 18px 0; }
+    footer { border-top:1px solid #eee; }
+    .method-nav { margin:12px 0 18px; }
+  </style>
 </head>
 <body>
-
-  <header>
-    <p>
-      <strong>NORMIA</strong> ·
-      <a href="/">Hjem</a> ·
-      <a href="/metodikk/">Metodikk</a> ·
+<header>
+  <div class="wrap">
+    <div class="meta"><span class="pill">NORMIA v1.0</span> · <a href="/revisjoner/">Revisjoner</a></div>
+    <nav style="margin-top:14px">
+      <a href="/system/">System</a>
+      <a href="/metodikk/">Metodikk</a>
+      <a href="/eksempel/">Eksempel</a>
+      <a href="/bruk/">Bruk</a>
       <a href="/revisjoner/">Revisjoner</a>
-    </p>
-    <h1>FDV</h1>
-    <p>
-      FDV beskriver hva som skal overleveres for drift og senere kontroll: dokumentasjon,
-      samsvar, produktdata, og revisjonssikkert arkiv.
-    </p>
-  </header>
+    </nav>
+  </div>
+</header>
 
-  <main>
-    <section>
-      <h2>Minimumskrav</h2>
-      <ul>
-        <li>FDV skal være komplett, sporbar og knyttet til objekt og sone</li>
-        <li>Gjeldende versjon skal være entydig merket</li>
-        <li>Endringer skal kunne spores via revisjoner</li>
-        <li>Dokumentasjon skal være egnet for drift og fremtidige inngrep</li>
-      </ul>
-    </section>
+<main>
+  <div class="wrap">
+    <h1>NORMIA – FDV</h1>
 
-    <section>
-      <h2>Innhold i FDV-pakke (eksempel)</h2>
-      <ul>
-        <li>Produktdatablader og monteringsanvisninger</li>
-        <li>Samsvarserklæringer (relevant fag)</li>
-        <li>Kontrollrapporter, avvik og lukking</li>
-        <li>Drifts- og vedlikeholdsinstrukser</li>
-        <li>Arkivstruktur med ID, revisjon og dato</li>
-      </ul>
-    </section>
+    <nav class="meta method-nav">
+      <a href="/metodikk/prosjektering/">Prosjektering</a> ·
+      <a href="/metodikk/utforelse/">Utførelse</a> ·
+      <a href="/metodikk/kontroll/">Kontroll</a> ·
+      <a href="/metodikk/fdv/">FDV</a>
+    </nav>
 
-    <section>
-      <h2>Status</h2>
-      <p>Innhold er under etablering. Denne siden er primær inngang for gjeldende FDV-metodikk.</p>
-    </section>
-  </main>
+    <p class="meta"><span class="pill">NORMIA-MET-FDV-0001</span> · v1.0 · Gjeldende</p>
 
+    <p><em>Denne metodikken beskriver hvordan NORMIA sikrer entydig, sporbar og revisjonssikker FDV som sluttprodukt av et kontrollert prosjektforløp. Innholdet er normerende og skal kunne brukes direkte ved overtakelse, drift og senere endringer.</em></p>
+
+    <h2>Formål</h2>
+    <p>NORMIA – FDV er metodikken for <strong>strukturert og etterprøvbar overlevering</strong> av ferdigstilt prosjekt til drift, forvaltning og vedlikehold. Metodikken sikrer at FDV ikke er et etterarbeid, men et direkte resultat av korrekt prosjektering, dokumentert utførelse og systematisk kontroll.</p>
+    <p>FDV i NORMIA er et sluttprodukt, ikke en samling dokumenter.</p>
+
+    <h2>Metodikkens rolle i NORMIA</h2>
+    <p>FDV utgjør avslutningen av NORMIA-kjeden: prosjektering definerer hva som skal bygges, utførelse dokumenterer hva som er gjort, kontroll verifiserer samsvar, og FDV samler og strukturerer dette til varig verdi.</p>
+    <p>Uten dokumentert grunnlag i foregående faser finnes det ingen gyldig FDV.</p>
+
+    <h2>Grunnprinsipper</h2>
+    <p>All FDV etter NORMIA skal:</p>
+    <ul>
+      <li>bygge utelukkende på dokumentert og kontrollert leveranse</li>
+      <li>være komplett ved overlevering</li>
+      <li>være strukturert etter objekt og sone</li>
+      <li>være sporbar tilbake til prosjektering og utførelse</li>
+      <li>være egnet for drift, vedlikehold og senere kontroll</li>
+    </ul>
+    <p><em>FDV som ikke kan spores, anses som uverifisert.</em></p>
+
+    <h2>FDV er et resultat – ikke en aktivitet</h2>
+    <p>NORMIA tillater ikke at FDV produseres i etterkant for å kompensere for manglende dokumentasjon.</p>
+    <p>FDV <strong>oppstår</strong> som et resultat av korrekt prosjektering, strukturert utførelse og systematisk kontroll. Manglende dokumentasjon i tidligere faser kan ikke repareres i FDV-fasen.</p>
+
+    <h2>Struktur for FDV</h2>
+    <p>FDV-leveransen skal minimum inneholde:</p>
+    <ul>
+      <li><strong>Prosjekteringsgrunnlag (som bygget)</strong> – endelig løsning, revisjonsstatus, forutsetninger</li>
+      <li><strong>Utførelsesdokumentasjon</strong> – ferdigstillelse per objekt, produktinfo, forutsetninger</li>
+      <li><strong>Kontrolldokumentasjon</strong> – egenkontroll, intern kontroll, uavhengig kontroll, avvik/lukking</li>
+      <li><strong>Drifts- og vedlikeholdsgrunnlag</strong> – anvisninger, intervaller, kritiske komponenter</li>
+      <li><strong>Sporbar struktur</strong> – kobling dokument/objekt/sone, identifikasjon, versjonering</li>
+    </ul>
+
+    <h2>Roller og ansvar</h2>
+    <p>FDV etter NORMIA har klart plassert ansvar:</p>
+    <ul>
+      <li><strong>Utførende / entreprenør</strong> – dokumentasjon produseres gjennom utførelse og kontroll</li>
+      <li><strong>FDV-ansvarlig</strong> – struktur, fullstendighet og kvalitet i FDV-leveransen</li>
+      <li><strong>Byggherre / eier</strong> – mottar FDV som beslutnings- og driftsgrunnlag</li>
+    </ul>
+    <p>FDV-ansvar kan ikke overtas uten tilgang til dokumentert grunnlag.</p>
+
+    <h2>FDV som beslutningsgrunnlag</h2>
+    <p>FDV i NORMIA benyttes som grunnlag for overtakelse og sluttoppgjør, garanti- og reklamasjonsbehandling, drift og vedlikehold, senere rehabilitering eller ombygging, samt teknisk og juridisk etterprøving.</p>
+    <p>Mangelfull FDV svekker byggets verdi og etterprøvbarhet.</p>
+
+    <h2>Når brukes NORMIA – FDV</h2>
+    <p>Metodikken brukes i alle prosjekter hvor bygget skal driftes over tid, ansvar og eierskap skal kunne dokumenteres, endringer og vedlikehold forventes, og kvalitet skal kunne etterprøves i ettertid. Dette gjelder særlig rehabilitering, tekniske anlegg og våtrom.</p>
+
+    <h2>Avslutning</h2>
+    <p><em>Denne metodikken er normerende for prosjekter som følger NORMIA. Avvik fra metodikken skal være eksplisitt besluttet og dokumentert.</em></p>
+
+    <div class="hr"></div>
+
+    <p class="meta"><strong>PDF:</strong> <a href="/pdf/NORMIA-MET-FDV-0001_v1.0.pdf">Last ned gjeldende versjon</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap meta">
+    <div>NORMIA v1.0 · Endringer kun via formell revisjon · <a href="/revisjoner/">Revisjonsoversikt</a></div>
+  </div>
+</footer>
 </body>
 </html>
