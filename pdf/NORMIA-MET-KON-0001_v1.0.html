@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><!-- DOC_TITLE --></title>
+  <meta name="description" content="NORMIA metodikk – PDF" />
+
+  <style>
+    /* =========================
+       PDF – NORMIA Master Template
+       Print: Chrome/Edge → Save as PDF
+       ========================= */
+
+    :root{
+      --page-margin-top: 18mm;
+      --page-margin-bottom: 16mm;
+      --page-margin-left: 16mm;
+      --page-margin-right: 16mm;
+
+      --ink: #111;
+      --muted: #444;
+      --line: #e6e6e6;
+
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* PAGE */
+    @page {
+      size: A4;
+      margin: var(--page-margin-top) var(--page-margin-right)
+              var(--page-margin-bottom) var(--page-margin-left);
+
+      /* Margin boxes (støttes variabelt – funker ofte bra i Chromium) */
+      @top-left {
+        content: "NORMIA – Metodikk";
+        font-family: var(--font);
+        font-size: 9pt;
+        color: var(--muted);
+      }
+      @top-right {
+        content: "Dokument-ID: " string(doc_id) " · Revisjon: " string(doc_rev);
+        font-family: var(--font);
+        font-size: 9pt;
+        color: var(--muted);
+      }
+      @bottom-left {
+        content: "Status: " string(doc_status) " · Dato: " string(doc_date);
+        font-family: var(--font);
+        font-size: 9pt;
+        color: var(--muted);
+      }
+      @bottom-right {
+        content: "Side " counter(page) " av " counter(pages);
+        font-family: var(--font);
+        font-size: 9pt;
+        color: var(--muted);
+      }
+    }
+
+    /* BODY */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 11.5pt/1.55 var(--font);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Helpers */
+    .muted { color: var(--muted); }
+    .rule { height: 1px; background: var(--line); margin: 10mm 0 6mm; }
+    .small { font-size: 10pt; }
+    .pill {
+      display:inline-block;
+      padding: 1mm 3mm;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 9.5pt;
+      color: var(--muted);
+    }
+
+    /* Cover */
+    .cover {
+      page-break-after: always;
+      padding-top: 20mm;
+    }
+    .brand {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10mm;
+    }
+    .logo {
+      width: 28mm;
+      height: 28mm;
+      border: 1px solid var(--line);
+      border-radius: 6mm;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+    .cover h1 {
+      font-size: 26pt;
+      line-height: 1.15;
+      margin: 6mm 0 2mm;
+    }
+    .cover .subtitle {
+      font-size: 12.5pt;
+      color: var(--muted);
+      margin: 0 0 10mm;
+      max-width: 150mm;
+    }
+
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10mm;
+      font-size: 10.5pt;
+    }
+    .meta-table td {
+      padding: 3mm 0;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+    .meta-table td:first-child {
+      width: 42mm;
+      color: var(--muted);
+    }
+    .note {
+      margin-top: 10mm;
+      padding: 5mm 6mm;
+      border: 1px solid var(--line);
+      border-radius: 4mm;
+      color: var(--muted);
+      font-size: 10.5pt;
+    }
+
+    /* Content */
+    main { }
+    h2 {
+      font-size: 14pt;
+      margin: 10mm 0 3mm;
+      page-break-after: avoid;
+    }
+    p { margin: 0 0 4mm; }
+    ul { margin: 0 0 4mm 6mm; padding: 0; }
+    li { margin: 0 0 2mm; }
+
+    /* Page-break control */
+    .avoid-break { break-inside: avoid; page-break-inside: avoid; }
+    .page-break { break-before: page; page-break-before: always; }
+
+    /* Normerende setninger */
+    .norm {
+      margin: 4mm 0 6mm;
+      padding: 4mm 5mm;
+      border-left: 3mm solid var(--line);
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* Links (print-friendly) */
+    a { color: inherit; text-decoration: none; }
+  </style>
+
+  <!-- Document strings used by @page margin boxes -->
+  <style>
+    :root{
+      /* Fylles per dokument */
+      string-set: doc_id "NORMIA-MET-XXX-0001";
+      string-set: doc_rev "v1.0";
+      string-set: doc_status "Gjeldende";
+      string-set: doc_date "2026-01-12";
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       COVER PAGE
+       ========================= -->
+  <section class="cover">
+    <div class="brand">
+      <div>
+        <div class="pill">NORMIA v1.0</div>
+        <h1><!-- DOC_H1: f.eks. "NORMIA – Prosjektering" --></h1>
+        <p class="subtitle"><!-- DOC_SUBTITLE: kort undertittel --></p>
+      </div>
+
+      <!-- Bytt gjerne ut med ekte logo senere (SVG/PNG). -->
+      <div class="logo">N</div>
+    </div>
+
+    <table class="meta-table">
+      <tr>
+        <td>Dokument-ID</td>
+        <td><strong><!-- DOC_ID --></strong></td>
+      </tr>
+      <tr>
+        <td>Revisjon</td>
+        <td><strong><!-- DOC_REV --></strong></td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td><strong><!-- DOC_STATUS --></strong></td>
+      </tr>
+      <tr>
+        <td>Dato</td>
+        <td><strong><!-- DOC_DATE --></strong></td>
+      </tr>
+    </table>
+
+    <div class="note">
+      Dette dokumentet er normerende for prosjekter som følger NORMIA.
+      Avvik fra metodikken skal være eksplisitt besluttet og dokumentert.
+    </div>
+  </section>
+
+  <!-- =========================
+       CONTENT
+       ========================= -->
+  <main>
+    <!-- Valgfri kort ingress øverst (samme som nettside) -->
+    <p class="muted"><em><!-- DOC_INGRESS --></em></p>
+
+    <h2>Formål</h2>
+    <p><!-- LIM INN INNHOLD HER --></p>
+
+    <!-- Eksempel på normerende markering -->
+    <!-- <div class="norm">Hvis det ikke kan dokumenteres, regnes det ikke som utført.</div> -->
+
+    <!-- Fortsett med resten av seksjonene i samme rekkefølge -->
+  </main>
+
+</body>
+</html>
