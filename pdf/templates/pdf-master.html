@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{TITLE}}</title>
+  <link rel="stylesheet" href="/pdf/templates/pdf.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="brand">NORMIA</div>
+      <div class="meta">
+        <span class="id">{{DOC_ID}}</span> · {{VERSION}} · {{STATUS}} · Rev.{{REV}} · {{DATE}}
+      </div>
+      <h1>{{H1}}</h1>
+
+      <div class="kv" aria-label="Dokumentmetadata">
+        <div class="k">Dokument-ID</div><div class="v">{{DOC_ID}}</div>
+        <div class="k">Versjon</div><div class="v">{{VERSION}}</div>
+        <div class="k">Status</div><div class="v">{{STATUS}}</div>
+        <div class="k">Revisjon</div><div class="v">Rev.{{REV}}</div>
+        <div class="k">Revisjonsdato</div><div class="v">{{DATE}}</div>
+        <div class="k">Faglig eier</div><div class="v">{{OWNER_ROLE}}</div>
+      </div>
+
+      <div class="callout">
+        <b>Forutsetninger</b>
+        {{ASSUMPTIONS}}
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    {{CONTENT}}
+
+    <div class="footer">
+      <div>NORMIA · Dokumentert metodikk</div>
+      <div>{{DOC_ID}} · {{VERSION}}</div>
+    </div>
+  </div>
+</body>
+</html>
