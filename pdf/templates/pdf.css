@@ -1,0 +1,63 @@
+:root{
+  --fg:#111;
+  --muted:#444;
+  --line:#e6e6e6;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; color:var(--fg); }
+body{ font: 11.5pt/1.45 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+.page{
+  width: 210mm;
+  min-height: 297mm;
+  padding: 18mm 18mm 18mm 18mm;
+}
+
+.header{
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 6mm;
+  margin-bottom: 6mm;
+}
+.brand{ font-weight: 700; letter-spacing: .2px; }
+.meta{
+  margin-top: 2mm;
+  color: var(--muted);
+  font-size: 9.5pt;
+}
+.meta .id{ font-family: var(--mono); color: var(--fg); }
+
+h1{ font-size: 18pt; margin: 0 0 2mm; line-height: 1.15; }
+h2{ font-size: 12.5pt; margin: 7mm 0 2mm; }
+p{ margin: 0 0 3mm; }
+
+.kv{
+  display:grid;
+  grid-template-columns: 36mm 1fr;
+  gap: 2mm 4mm;
+  margin-top: 4mm;
+  padding: 4mm;
+  border: 1px solid var(--line);
+  border-radius: 3mm;
+}
+.k{ color: var(--muted); font-size: 9.5pt; }
+.v{ font-family: var(--mono); font-size: 9.5pt; }
+
+.callout{
+  margin: 6mm 0;
+  padding: 4mm;
+  border-left: 2mm solid #111;
+  background: #f7f7f7;
+}
+.callout b{ display:block; margin-bottom: 1mm; }
+
+.footer{
+  border-top: 1px solid var(--line);
+  margin-top: 10mm;
+  padding-top: 3mm;
+  color: var(--muted);
+  font-size: 9pt;
+  display:flex;
+  justify-content: space-between;
+}
