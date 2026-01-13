@@ -1,90 +1,213 @@
 <!doctype html>
 <html lang="no">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>System – NORMIA</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NORMIA System – v1.0</title>
+  <meta name="description" content="NORMIA System: fast struktur, dokumentlogikk, versjonering og sporbarhet." />
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#0f1620; --text:#e9eef5; --muted:#a9b4c2;
+      --line:#1e2a38; --link:#7cc4ff; --pill:#152333;
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
+      background:var(--bg); color:var(--text);}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--line); background:rgba(11,15,20,.85); position:sticky; top:0; backdrop-filter: blur(6px);}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 20px;}
+    nav{display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:10px; align-items:baseline}
+    .brand b{letter-spacing:.6px}
+    .badge{font-size:12px; color:var(--muted); padding:2px 8px; border:1px solid var(--line); border-radius:999px}
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap}
+    main{padding:26px 0 40px}
+    h1{margin:0 0 8px; font-size:28px}
+    h2{margin:28px 0 10px; font-size:18px}
+    p{margin:0 0 10px; color:var(--text)}
+    .muted{color:var(--muted)}
+    .grid{display:grid; grid-template-columns:1fr; gap:14px; margin-top:14px}
+    @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px}
+    .pill{display:inline-block; background:var(--pill); border:1px solid var(--line); padding:2px 10px; border-radius:999px; font-size:12px; color:var(--muted); margin-right:6px}
+    code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+    .kbd{display:inline-block; padding:1px 6px; border:1px solid var(--line); border-bottom-width:2px; border-radius:6px; background:#0c131d; color:var(--muted); font-size:12px}
+    ul{margin:10px 0 0 18px; color:var(--text)}
+    li{margin:6px 0}
+    footer{border-top:1px solid var(--line); padding:18px 0; color:var(--muted); font-size:13px}
+    .hr{height:1px; background:var(--line); margin:18px 0}
+  </style>
 </head>
+
 <body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">
+        <b>NORMIA</b>
+        <span class="badge">System · v1.0</span>
+      </div>
+      <div class="navlinks">
+        <a href="/">Hjem</a>
+        <a href="/metodikk/">Metodikk</a>
+        <a href="/bruk/">Bruk</a>
+        <a href="/eksempel/">Eksempel</a>
+        <a href="/revisjoner/">Revisjoner</a>
+        <a href="/pdf/">PDF</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-  <header>
-    <p>
-      <strong>NORMIA</strong> ·
-      <a href="/system/">System</a> ·
-      <a href="/metodikk/">Metodikk</a> ·
-      <a href="/eksempel/">Eksempel</a> ·
-      <a href="/bruk/">Bruk</a> ·
-      <a href="/revisjoner/">Revisjoner</a>
-    </p>
-
+<main>
+  <div class="wrap">
     <h1>System</h1>
-
-    <p>
-      <strong>NORMIA-SYS-0001</strong> · <strong>v1.0</strong> · <strong>Gjeldende</strong>
+    <p class="muted">
+      Denne siden beskriver NORMIA sin <b>faste struktur</b>: hvordan dokumentene navngis, versjoneres, spores og gjenbrukes.
+      Ikke opplæring, ikke prosjektspesifikt – bare grunnmuren.
     </p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Systemprinsipp</h2>
-      <p>
-        NORMIA etablerer entydig sammenheng mellom krav, utførelse og dokumentasjon.
-        Ingenting anses som levert før det er definert, utført, kontrollert, dokumentert og arkivert.
+    <div class="grid">
+      <section class="card">
+        <h2>Hva er NORMIA-systemet</h2>
+        <p>
+          NORMIA er et metodisk dokument- og kontrollsystem for byggeprosjekter, bygget for å gi:
+        </p>
+        <ul>
+          <li><b>Entydighet</b> (ingen tolkning av hva som gjelder)</li>
+          <li><b>Sporbarhet</b> (hva, hvem, når, hvorfor)</li>
+          <li><b>Revisjonskontroll</b> (historikk beholdes, ingenting overskrives)</li>
+          <li><b>Gjenbruk</b> (standarder kan kopieres inn i nye prosjekter)</li>
+        </ul>
+        <div class="hr"></div>
+        <p class="muted">
+          NORMIA skiller tydelig mellom: <b>metode</b> (fast) og <b>prosjekt</b> (variabelt).
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Fast vs. prosjektspesifikt</h2>
+        <p><span class="pill">FAST</span> Metodikk, dokumentlogikk, navnestandard, versjonering og revisjonsregler.</p>
+        <p><span class="pill">VARIABELT</span> Prosjektets prosjekteringsgrunnlag, tegninger, avklaringer, avvik og faktiske leveranser.</p>
+        <div class="hr"></div>
+        <p class="muted">
+          Resultat: samme “operativsystem” i alle prosjekter – men nytt innhold per prosjekt.
+        </p>
+      </section>
+    </div>
+
+    <section class="card" style="margin-top:14px">
+      <h2>Struktur i repositoriet</h2>
+      <p class="muted">Dette er anbefalt mappehierarki (kilde og navigasjon):</p>
+      <ul>
+        <li><code>/system/</code> – definisjon av rammeverket (denne siden)</li>
+        <li><code>/metodikk/</code> – metodebeskrivelser (PRO/KON/UF/FDV) i HTML</li>
+        <li><code>/bruk/</code> – “slik gjør du det” (praktisk bruk på byggeplass/administrasjon)</li>
+        <li><code>/eksempel/</code> – eksempelprosjekt som viser helheten i praksis</li>
+        <li><code>/revisjoner/</code> – revisjonslogg og endringshistorikk</li>
+        <li><code>/pdf/</code> – PDF-system (maler + exports)</li>
+      </ul>
+      <p class="muted" style="margin-top:10px">
+        Prinsipp: <b>HTML er alltid kilden</b>. PDF er eksport for deling/arkiv.
       </p>
     </section>
 
-    <section>
-      <h2>Objekt- og ID-logikk</h2>
+    <section class="card" style="margin-top:14px">
+      <h2>Dokument-ID og versjonering</h2>
       <p>
-        Alle elementer behandles som objekter med entydig identitet, ansvar og status.
-        ID-en er bærer av sporbarhet og binder sammen prosjektering, utførelse, kontroll og FDV.
+        Hvert dokument har en fast ID som aldri endrer identitet – bare versjon.
       </p>
-      <p>
-        Eksempel: <code>NORMIA-EKS-0001-O-04</code> (objekt) → <code>…-KON-004</code> (kontrollpunkt) → <code>…-DOK-PR-001</code> (dokument).
+      <p class="muted">
+        Eksempel: <code>NORMIA-MET-PRO-0001_v1.0</code>
+      </p>
+
+      <ul>
+        <li><b>NORMIA</b> – system/brand</li>
+        <li><b>MET</b> – dokumentfamilie (Metodikk)</li>
+        <li><b>PRO</b> – fagspor (Prosjektering) — tilsvarende <b>KON</b>, <b>UF</b>, <b>FDV</b></li>
+        <li><b>0001</b> – løpenummer innen dokumenttypen</li>
+        <li><b>v1.0</b> – versjon (major.minor)</li>
+      </ul>
+
+      <div class="hr"></div>
+      <p><b>Regel for versjon:</b></p>
+      <ul>
+        <li><b>Major (v2.0, v3.0 …)</b> når metode/krav endres slik at tidligere praksis ikke lenger er gyldig.</li>
+        <li><b>Minor (v1.1, v1.2 …)</b> når du presiserer, retter språk, legger til eksempler – uten å endre kravets “mening”.</li>
+      </ul>
+
+      <p class="muted" style="margin-top:10px">
+        Viktig: Ny versjon <b>erstatter ikke</b> historikk. Historikk flyttes til revisjoner/arkiv.
       </p>
     </section>
 
-    <section>
-      <h2>Dokumenthierarki</h2>
+    <section class="card" style="margin-top:14px">
+      <h2>Revisjonsregler</h2>
+      <ul>
+        <li>All endring som påvirker praksis skal gi ny versjon.</li>
+        <li>Alle versjoner skal ha en kort endringslogg (hva og hvorfor).</li>
+        <li>Kun én “gjeldende” versjon per dokument-ID er aktiv som standard.</li>
+        <li>Eldre versjoner skal være tilgjengelige for sporbarhet (ikke slettes).</li>
+      </ul>
+      <p class="muted" style="margin-top:10px">
+        Se: <a href="/revisjoner/">Revisjoner</a> for praktisk oppsett og loggformat.
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>HTML → PDF (prinsipp)</h2>
       <p>
-        Dokumentasjon er strukturert og knyttet til objekter og kontrollpunkter.
-        Dokumenter uten definert tilknytning anses ikke som gyldig dokumentasjon.
+        PDF skal betraktes som en <b>eksport</b> av samme innhold som ligger i HTML.
+        Det betyr:
       </p>
       <ul>
-        <li><strong>Prosjektering</strong>: kravgrunnlag, valg, forutsetninger</li>
-        <li><strong>Utførelse</strong>: arbeidsrekkefølge, kritiske punkter, egenkontroll</li>
-        <li><strong>Kontroll</strong>: verifikasjon mot kriterier, avvik og lukking</li>
-        <li><strong>FDV</strong>: overlevering, drift og revisjonssikker historikk</li>
+        <li>Du redigerer aldri PDF manuelt.</li>
+        <li>Du endrer kilden (HTML), og eksporterer på nytt.</li>
+        <li>PDF-filer navngis likt som dokument-ID + versjon.</li>
       </ul>
-    </section>
 
-    <section>
-      <h2>Revisjon og endringskontroll</h2>
-      <p>
-        Endringer håndteres gjennom formell revisjon. Tidligere revisjoner slettes ikke,
-        men arkiveres som historikk. Gjeldende versjon skal alltid være entydig.
-      </p>
-      <p>
-        Se <a href="/revisjoner/">Revisjoner</a> for endringshistorikk.
+      <div class="hr"></div>
+      <p class="muted">
+        Anbefalt PDF-struktur:
+        <code>/pdf/templates/</code> (maler og CSS) og <code>/pdf/exports/</code> (eksporter).
       </p>
     </section>
 
-    <section>
-      <h2>Status og sporbarhet</h2>
-      <p>
-        Status spores til tidspunkt, ansvarlig rolle og dokumentasjon. Systemet muliggjør presise svar på:
-        hva, når, av hvem og på hvilket grunnlag.
-      </p>
-      <p><strong>Systemlogikk:</strong> Objekt → Dokument → Kontrollpunkt → Status → Arkiv</p>
-    </section>
-
-    <section>
-      <h2>PDF</h2>
-      <p>
-        Last ned PDF (legges i <code>/pdf</code>): <a href="/pdf/">Åpne PDF-arkiv</a>
+    <section class="card" style="margin-top:14px">
+      <h2>Hva denne siden ikke er</h2>
+      <ul>
+        <li>Ikke prosjektspesifikke krav.</li>
+        <li>Ikke opplæringsmateriale (det ligger i <a href="/bruk/">Bruk</a>).</li>
+        <li>Ikke et eksempelprosjekt (det ligger i <a href="/eksempel/">Eksempel</a>).</li>
+      </ul>
+      <p class="muted" style="margin-top:10px">
+        Denne siden er “kontrakten” mellom NORMIA og alle fremtidige leveranser.
       </p>
     </section>
-  </main>
 
+    <section class="card" style="margin-top:14px">
+      <h2>Neste steg</h2>
+      <p>
+        Når <b>System</b> er låst, oppdaterer vi sidene i denne rekkefølgen:
+      </p>
+      <ol style="margin:10px 0 0 18px">
+        <li><b>Bruk</b> – hvordan man anvender systemet i praksis</li>
+        <li><b>Eksempel</b> – et konkret miniprosjekt som viser helheten</li>
+        <li><b>Revisjoner</b> – loggformat + historikkstruktur</li>
+      </ol>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="muted">
+      NORMIA v1.0 · Endringer kun via formell revisjon · <a href="/revisjoner/">Se revisjonslogg</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
