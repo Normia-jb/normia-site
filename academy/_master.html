@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NORMIA – Dokument (ID) · vX.Y</title>
+  <meta name="description" content="NORMIA-dokument med entydig ID, versjon og status." />
+
+  <style>
+    :root{
+      --max: 920px;
+      --fg: #111;
+      --muted: #444;
+      --line: #e8e8e8;
+      --bg: #fff;
+      --chip: #f6f6f6;
+      --accent: #111;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--fg); }
+    body{ font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 24px; }
+
+    header{ border-bottom:1px solid var(--line); }
+    footer{ border-top:1px solid var(--line); margin-top: 28px; }
+
+    .topline{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid var(--line);
+      background:var(--chip);
+      border-radius:999px;
+      padding: 4px 10px;
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .chip code{ font-family: var(--mono); font-size: 12px; color: var(--fg); }
+
+    .meta{ color:var(--muted); font-size: 13px; }
+    .meta a{ color:var(--fg); text-decoration:none; border-bottom:1px dotted #bbb; }
+    .meta a:hover{ border-bottom-color: var(--fg); }
+
+    nav{ margin-top: 14px; display:flex; flex-wrap:wrap; gap:12px; }
+    nav a{
+      text-decoration:none; color:var(--fg);
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    nav a:hover{ border-color: var(--line); background: #fafafa; }
+
+    h1{ font-size: 34px; line-height:1.15; margin: 14px 0 6px; }
+    h2{ margin: 26px 0 8px; font-size: 18px; }
+    p{ margin: 0 0 10px; }
+
+    .dochead{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .status{
+      display:inline-flex; gap:8px; align-items:center;
+      border:1px solid var(--line);
+      border-radius: 12px;
+      padding: 6px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      background: #fff;
+    }
+    .status b{ color: var(--fg); }
+    .kv{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 6px 12px;
+      margin-top: 16px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fcfcfc;
+    }
+    .k{ color: var(--muted); font-size: 13px; }
+    .v{ font-family: var(--mono); font-size: 13px; color: var(--fg); }
+
+    .callout{
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      background: #fafafa;
+      border-radius: 10px;
+      margin: 16px 0;
+    }
+    .callout .t{ font-weight: 600; margin-bottom: 4px; }
+    .callout .b{ color: var(--muted); font-size: 14px; }
+
+    ul{ margin: 6px 0 12px 18px; }
+    li{ margin: 4px 0; }
+
+    .hr{ height:1px; background:var(--line); margin: 18px 0; }
+
+    .pdf{
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .pdf a{ text-decoration:none; color:#fff; background:#111; padding:8px 12px; border-radius: 10px; display:inline-block; }
+    .pdf a:hover{ opacity: .92; }
+
+    /* PRINT / PDF (A4) */
+    @media print {
+      :root{ --max: 100%; }
+      nav, .pdf{ display:none !important; }
+      header, footer{ border: none; }
+      .wrap{ padding: 0; }
+      body{ font-size: 11.5pt; line-height: 1.45; }
+      h1{ font-size: 18pt; }
+      h2{ font-size: 12.5pt; margin-top: 14pt; }
+      .kv{ background: #fff; }
+      a{ color: #000; text-decoration: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <!-- TOPLINE: Plattform + revisjonsspor -->
+    <div class="topline">
+      <span class="chip">NORMIA Academy · <code>v1.0</code></span>
+      <span class="meta">· <a href="/revisjoner/">Revisjonsoversikt</a></span>
+    </div>
+
+    <!-- NAV: Tilpass per område -->
+    <nav aria-label="Primær navigasjon">
+      <a href="/system/">System</a>
+      <a href="/metodikk/">Metodikk</a>
+      <a href="/academy/">Academy</a>
+      <a href="/eksempel/">Eksempel</a>
+      <a href="/bruk/">Bruk</a>
+      <a href="/revisjoner/">Revisjoner</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- DOKUMENTTITTEL -->
+    <h1>Modul X – Tittel</h1>
+
+    <!-- STATUSLINJE -->
+    <div class="dochead">
+      <span class="status"><b>ID</b> <span class="v">NORMIA-ACA-00XX</span></span>
+      <span class="status"><b>Versjon</b> <span class="v">v1.0</span></span>
+      <span class="status"><b>Status</b> <span class="v">Gjeldende</span></span>
+      <span class="status"><b>Dato</b> <span class="v">2026-01-13</span></span>
+      <span class="status"><b>Eier</b> <span class="v">Systemansvarlig</span></span>
+    </div>
+
+    <!-- METADATA-BOKS -->
+    <div class="kv" role="group" aria-label="Dokumentmetadata">
+      <div class="k">Dokument-ID</div><div class="v">NORMIA-ACA-00XX</div>
+      <div class="k">Tittel</div><div class="v">Modul X – Tittel</div>
+      <div class="k">Versjon</div><div class="v">v1.0</div>
+      <div class="k">Status</div><div class="v">Gjeldende</div>
+      <div class="k">Revisjon</div><div class="v">Rev.01</div>
+      <div class="k">Revisjonsdato</div><div class="v">2026-01-13</div>
+      <div class="k">Faglig eier</div><div class="v">[Rolle]</div>
+      <div class="k">Arkivplassering</div><div class="v">/academy/modul-x/</div>
+    </div>
+
+    <!-- KORT “CALL-OUT” FOR FORUTSETNINGER -->
+    <div class="callout">
+      <div class="t">Forutsetninger</div>
+      <div class="b">
+        Oppgi alle forutsetninger som påvirker gyldighet. Ved endring skal dokumentet revideres.
+      </div>
+    </div>
+
+    <!-- INNHOLD -->
+    <h2>1. Formål</h2>
+    <p>Beskriv hensikt, anvendelse og avgrensning. Teksten skal kunne siteres i tilsyn og revisjon.</p>
+
+    <h2>2. Prinsipper</h2>
+    <ul>
+      <li>Prinsipp 1</li>
+      <li>Prinsipp 2</li>
+      <li>Prinsipp 3</li>
+    </ul>
+
+    <h2>3. Krav</h2>
+    <p>Definer krav og kriterier entydig. Bruk “skal” for krav og “bør” kun for anbefalinger.</p>
+
+    <h2>4. Kontroll og sporbarhet</h2>
+    <ul>
+      <li>Hva kontrolleres</li>
+      <li>Hvordan kontrolleres</li>
+      <li>Hvor dokumenteres</li>
+    </ul>
+
+    <div class="hr"></div>
+
+    <!-- PDF-LENKE (valgfri på web, skjules i print) -->
+    <div class="pdf">
+      <div class="meta" style="margin-bottom:10px">
+        PDF-eksport genereres fra HTML-master. PDF er arkivformat – HTML er master.
+      </div>
+      <a href="/pdf/NORMIA-ACA-00XX_v1.0.pdf">Last ned PDF</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap meta">
+    <div>
+      NORMIA · Endringer kun via formell revisjon ·
+      <a href="/revisjoner/">Revisjonsoversikt</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
