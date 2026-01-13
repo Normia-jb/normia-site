@@ -4,23 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NORMIA – Metodikk: Utførelse (v1.0)</title>
-  <meta name="description" content="NORMIA – Utførelse: kontrollert, sporbar og kontraktsmessig korrekt gjennomføring basert på prosjektering." />
+  <meta name="description" content="Utførelse etter NORMIA: trinnvis gjennomføring, kritiske kontrollpunkter og sporbar dokumentasjon." />
   <style>
-    :root { --max: 980px; }
+    :root { --max: 880px; }
     body { margin:0; font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
     header, main, footer { padding: 24px; }
     .wrap { max-width: var(--max); margin: 0 auto; }
     nav a { margin-right: 14px; text-decoration:none; color:#111; }
     nav a:hover { text-decoration:underline; }
-    a { color:#111; }
-    a:hover { text-decoration: underline; }
     .meta { color:#444; font-size: 14px; }
-    h1 { font-size: 34px; line-height:1.15; margin: 10px 0 10px; }
+    h1 { font-size: 34px; line-height:1.15; margin: 10px 0 8px; }
     h2 { margin-top: 26px; }
     .pill { display:inline-block; padding: 2px 10px; border:1px solid #ddd; border-radius: 999px; font-size: 12px; color:#444; }
-    .hr { height:1px; background:#eee; margin: 18px 0; }
     footer { border-top:1px solid #eee; }
-    .method-nav { margin:12px 0 18px; }
   </style>
 </head>
 <body>
@@ -39,69 +35,32 @@
 
 <main>
   <div class="wrap">
-    <h1>NORMIA – Utførelse</h1>
+    <h1>Metodikk: Utførelse</h1>
+    <p class="meta"><span class="pill">NORMIA-MET-UF-0001</span> · v1.0 · Gjeldende</p>
 
-    <nav class="meta method-nav">
-      <a href="/metodikk/prosjektering/">Prosjektering</a> ·
-      <a href="/metodikk/utforelse/">Utførelse</a> ·
-      <a href="/metodikk/kontroll/">Kontroll</a> ·
-      <a href="/metodikk/fdv/">FDV</a>
-    </nav>
+    <h2>Formål og rolle</h2>
+    <p>Utførelse i NORMIA er kontrollert gjennomføring basert på definert prosjekteringsgrunnlag. Utførende skal kunne følge metodikken uten tolkning, og hvert kritisk punkt skal gi sporbar dokumentasjon.</p>
 
-    <p class="meta"><span class="pill">NORMIA-MET-UFO-0001</span> · v1.0 · Gjeldende</p>
+    <h2>Grunnlag for utførelse</h2>
+    <p>Utførelse skal bygge på gjeldende prosjektering (ID og revisjon). Manglende avklaringer skal journalføres som prosjekteringsavvik og kan ikke løses ad hoc på byggeplass uten dokumentert beslutning.</p>
 
-    <p><em>Denne metodikken beskriver hvordan NORMIA sikrer strukturert, etterprøvbar og dokumentert utførelse basert på et entydig prosjekteringsgrunnlag. Innholdet er normerende og skal kunne brukes direkte i produksjon, kontroll og overlevering.</em></p>
+    <h2>Arbeidsomfang og rekkefølge</h2>
+    <p>Arbeidsomfang beskrives trinnvis med rekkefølge, avhengigheter, tørketider og grensesnitt. Hvert trinn skal definere: hva som gjøres, hvem som gjør det, og hva som dokumenteres.</p>
 
-    <h2>Formål</h2>
-    <p>NORMIA – Utførelse er metodikken for <strong>systematisk gjennomføring av bygge- og rehabiliteringsarbeider</strong> basert på dokumentert prosjektering. Metodikken sikrer at det som bygges er det som er besluttet, utført i riktig rekkefølge og med dokumenterbar kvalitet.</p>
-    <p>Utførelse i NORMIA handler ikke om håndverksutførelse isolert, men om <strong>styring av produksjon som system</strong>.</p>
+    <h2>Kritiske utførelseskrav</h2>
+    <p>Kritiske krav er punkter der feil gir høy konsekvens (fukt, brann, lyd, bæreevne, el-sikkerhet). Kravene skal være entydige, kontrollerbare og knyttet til objekt/sone.</p>
 
-    <h2>Metodikkens rolle i NORMIA</h2>
-    <p>Utførelse er den operative fasen i NORMIA-kjeden: prosjektering definerer hva som skal bygges, utførelse realiserer dette i praksis, kontroll verifiserer samsvar, og FDV baseres på dokumentert utførelse. Uten strukturert utførelse finnes det ingen pålitelig kobling mellom beslutning og ferdig bygg.</p>
+    <h2>Egenkontroll og mellomkontroll</h2>
+    <p>Egenkontroll utføres fortløpende før skjulte arbeider lukkes. Mellomkontroll brukes der prosjekteringen krever verifikasjon før neste trinn. Kontroller dokumenteres med ID, dato, ansvar og fotobevis der relevant.</p>
 
-    <h2>Grunnprinsipper</h2>
-    <p>All utførelse etter NORMIA skal:</p>
-    <ul>
-      <li>bygge direkte på dokumentert prosjekteringsgrunnlag</li>
-      <li>kunne gjennomføres uten faglig tolkning</li>
-      <li>være egnet for produksjonsstyring og egenkontroll</li>
-      <li>ta hensyn til reell byggeplasslogikk</li>
-      <li>produsere dokumentasjon fortløpende</li>
-    </ul>
-    <p>Utførelse beskrives før arbeidet starter, ikke i etterkant.</p>
+    <h2>Avvik og lukking</h2>
+    <p>Avvik registreres umiddelbart med årsak, konsekvens og forslag til tiltak. Avvik lukkes først når tiltak er utført og verifisert. Uten verifisering anses avviket som åpent.</p>
 
-    <h2>Struktur for utførelse</h2>
-    <p>Hver utførelsesbeskrivelse skal minimum inneholde:</p>
-    <ul>
-      <li><strong>Forutsetninger og referanser</strong> (prosjekteringsgrunnlag, krav, grensesnitt)</li>
-      <li><strong>Arbeidsomfang og rekkefølge</strong> (trinn, avhengigheter, kritiske forutsetninger)</li>
-      <li><strong>Kritiske utførelseskrav</strong> (krav, toleranser, høy-risiko detaljer)</li>
-      <li><strong>Kontrollpunkter under utførelse</strong> (tidspunkt, kriterier, ansvar)</li>
-      <li><strong>Dokumentasjon og sporbarhet</strong> (foto, sjekklister, måleverdier, kobling til objekt/sone)</li>
-    </ul>
+    <h2>Leveranse og arkivering</h2>
+    <p>Utførelsesdokumentasjon arkiveres per objekt/sone og knyttes til prosjektering, kontroll og FDV. Dokumentasjonen skal tåle gjennomgang av tredjepart.</p>
 
-    <h2>Roller og ansvar</h2>
-    <p>Utførelse etter NORMIA har entydig ansvar:</p>
-    <ul>
-      <li><strong>Utførende fag</strong> – utfører arbeid og registrerer egenkontroll</li>
-      <li><strong>Produksjonsansvarlig</strong> – sikrer rekkefølge, fremdrift og samspill</li>
-      <li><strong>Faglig ansvarlig</strong> – verifiserer samsvar med prosjektert løsning</li>
-    </ul>
-    <p>Utførelse er aldri “alles ansvar”. Den er alltid tydelig plassert.</p>
-
-    <h2>Leveranser fra Utførelse</h2>
-    <p>Utførelse produserer dokumentert ferdigstillelse per aktivitet, sporbar egenkontroll, grunnlag for intern og uavhengig kontroll, samt verifisert input til FDV.</p>
-    <p><em>Hvis det ikke kan dokumenteres, regnes det ikke som utført.</em></p>
-
-    <h2>Når brukes NORMIA – Utførelse</h2>
-    <p>Metodikken brukes i alle prosjekter hvor flere fag samhandler, kvalitet skal kunne etterprøves, og feil har økonomiske, tekniske eller juridiske konsekvenser. Dette gjelder særlig rehabilitering, våtrom, tekniske anlegg og serieproduksjon.</p>
-
-    <h2>Avslutning</h2>
-    <p><em>Denne metodikken er normerende for prosjekter som følger NORMIA. Avvik fra metodikken skal være eksplisitt besluttet og dokumentert.</em></p>
-
-    <div class="hr"></div>
-
-    <p class="meta"><strong>PDF:</strong> <a href="/pdf/NORMIA-MET-UFO-0001_v1.0.pdf">Last ned gjeldende versjon</a></p>
+    <h2>PDF</h2>
+    <p><a href="/pdf/NORMIA-MET-UF-0001_v1.0.pdf">Last ned PDF</a></p>
   </div>
 </main>
 
