@@ -2,57 +2,215 @@
 <html lang="no">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NORMIA – Eksempelprosjekt (v1.0)</title>
-  <meta name="description" content="Fiktivt eksempelprosjekt som demonstrerer NORMIA i praksis: objekt, sone, kontrollpunkt, dokumentasjon og FDV." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NORMIA – Eksempel</title>
+  <meta name="description" content="Eksempel som viser NORMIA i praksis: Prosjektering, Utførelse, Kontroll og FDV – med revisjonslogikk." />
   <style>
-    :root { --max: 880px; }
-    body { margin:0; font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
-    header, main, footer { padding: 24px; }
-    .wrap { max-width: var(--max); margin: 0 auto; }
-    nav a { margin-right: 14px; text-decoration:none; color:#111; }
-    nav a:hover { text-decoration:underline; }
-    .meta { color:#444; font-size: 14px; }
-    h1 { font-size: 34px; line-height:1.15; margin: 10px 0 8px; }
-    h2 { margin-top: 26px; }
-    .pill { display:inline-block; padding: 2px 10px; border:1px solid #ddd; border-radius: 999px; font-size: 12px; color:#444; }
-    footer { border-top:1px solid #eee; }
+    :root{
+      --bg:#0b0f14; --card:#0f1620; --text:#e9eef5; --muted:#a9b4c2;
+      --line:#1e2a38; --link:#7cc4ff; --pill:#152333;
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
+      background:var(--bg); color:var(--text);}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--line); background:rgba(11,15,20,.85); position:sticky; top:0; backdrop-filter: blur(6px);}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 20px;}
+    nav{display:flex; gap:14px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:10px; align-items:baseline}
+    .brand b{letter-spacing:.6px}
+    .badge{font-size:12px; color:var(--muted); padding:2px 8px; border:1px solid var(--line); border-radius:999px}
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap}
+    main{padding:26px 0 40px}
+    h1{margin:0 0 8px; font-size:28px}
+    h2{margin:26px 0 10px; font-size:18px}
+    p{margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin-top:14px}
+    .grid{display:grid; grid-template-columns:1fr; gap:14px; margin-top:14px}
+    @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
+    .pill{display:inline-block; background:var(--pill); border:1px solid var(--line); padding:2px 10px; border-radius:999px; font-size:12px; color:var(--muted); margin-right:6px}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .btn{display:inline-block; padding:8px 12px; border-radius:10px; border:1px solid var(--line); background:#0c131d; color:var(--text)}
+    .btn:hover{text-decoration:none; border-color:#2a3a4d}
+    ul{margin:10px 0 0 18px}
+    li{margin:6px 0}
+    table{width:100%; border-collapse:collapse; margin-top:10px; font-size:14px}
+    th,td{border:1px solid var(--line); padding:10px; vertical-align:top}
+    th{background:#0c131d; text-align:left}
+    footer{border-top:1px solid var(--line); padding:18px 0; color:var(--muted); font-size:13px}
   </style>
 </head>
+
 <body>
 <header>
   <div class="wrap">
-    <div class="meta"><span class="pill">NORMIA v1.0</span> · <a href="/revisjoner/">Revisjoner</a></div>
-    <nav style="margin-top:14px">
-      <a href="/system/">System</a>
-      <a href="/metodikk/prosjektering/">Metodikk</a>
-      <a href="/eksempel/">Eksempel</a>
-      <a href="/bruk/">Bruk</a>
-      <a href="/revisjoner/">Revisjoner</a>
+    <nav>
+      <div class="brand">
+        <b>NORMIA</b>
+        <span class="badge">Eksempel</span>
+      </div>
+      <div class="navlinks">
+        <a href="/">Hjem</a>
+        <a href="/system/">System</a>
+        <a href="/metodikk/">Metodikk</a>
+        <a href="/bruk/">Bruk</a>
+        <a href="/revisjoner/">Revisjoner</a>
+      </div>
     </nav>
   </div>
 </header>
 
 <main>
   <div class="wrap">
-    <h1>Eksempelprosjekt</h1>
-    <p class="meta"><span class="pill">NORMIA-EKS-0001</span> · v1.0 · Gjeldende</p>
+    <h1>Eksempel</h1>
+    <p class="muted">
+      Dette er et fiktivt eksempel som viser hvordan NORMIA henger sammen i praksis.
+      Målet er å vise <b>struktur og flyt</b> – ikke å beskrive et komplett prosjekt i alle detaljer.
+    </p>
 
-    <h2>Prosjektbeskrivelse</h2>
-    <p><strong>Eksempelprosjekt A</strong> er et fiktivt prosjekt for rehabilitering av våtrom i 4 boenheter. Formålet er å demonstrere NORMIA-kjeden fra prosjektering til FDV.</p>
+    <section class="card">
+      <h2>Eksempelprosjekt: Rehabilitering av våtrom (4 enheter)</h2>
+      <p>
+        <span class="pill">Prosjektering</span>
+        <span class="pill">Utførelse</span>
+        <span class="pill">Kontroll</span>
+        <span class="pill">FDV</span>
+      </p>
+      <p class="muted">
+        Avgrensning: Baderom og tilhørende VVS/EL-grensesnitt. 4 leiligheter med likt prinsipp og taktbasert gjennomføring.
+      </p>
+      <div class="cta">
+        <a class="btn" href="/metodikk/prosjektering/">Metodikk: Prosjektering</a>
+        <a class="btn" href="/metodikk/utforelse/">Metodikk: Utførelse</a>
+        <a class="btn" href="/metodikk/kontroll/">Metodikk: Kontroll</a>
+        <a class="btn" href="/metodikk/fdv/">Metodikk: FDV</a>
+      </div>
+    </section>
 
-    <h2>Objekt- og soneinndeling</h2>
-    <ul>
-      <li>S01–S04: Leilighet 1–4</li>
-      <li>O-01: Gulv våtrom</li>
-      <li>O-02: Vegger våtrom</li>
-      <li>O-03: Sluk og avløp</li>
-      <li>O-04: Tettesjikt</li>
-      <li>O-05: Sanitærutstyr</li>
-    </ul>
+    <div class="grid">
+      <section class="card">
+        <h2>1) Prosjektering (styrende grunnlag)</h2>
+        <p class="muted">
+          Prosjekteringen beskriver hva som skal bygges, hvorfor, og hvilke forutsetninger som gjelder.
+          I eksempelet er disse valgene sentrale:
+        </p>
+        <ul>
+          <li>Objekt- og soneinndeling per leilighet (A101–A104)</li>
+          <li>Grensesnitt for VVS/EL og lekkasjesikring</li>
+          <li>Krav til dokumentasjon før lukking</li>
+        </ul>
+        <p class="muted" style="margin-top:10px">
+          Sporbarhet: Alle valg knyttes til dokument-ID og revisjon.
+        </p>
+      </section>
 
-    <h2>Prosjektering (utdrag)</h2>
-    <p>For hvert objekt foreligger kravgrunnlag, valgt løsning og forutsetninger. Eksempel: O-04 Tettesjikt med kontrollkrav før tildekking.</p>
+      <section class="card">
+        <h2>2) Utførelse (kontrollert produksjon)</h2>
+        <p class="muted">
+          Utførelse følger prosjekteringsgrunnlaget trinnvis. I eksempelet brukes en enkel takt:
+        </p>
+        <ul>
+          <li>Riving → klargjøring → membran → flis → innredning</li>
+          <li>Kritiske punkter før skjult arbeid lukkes</li>
+          <li>Egenkontroll med foto og signatur</li>
+        </ul>
+        <p class="muted" style="margin-top:10px">
+          Resultat: det som ikke er dokumentert, regnes ikke som ferdig.
+        </p>
+      </section>
 
-    <h2>Utførelse (utdrag)</h2>
-    <p>Utførelse skjer etter
+      <section class="card">
+        <h2>3) Kontroll (verifikasjon)</h2>
+        <p class="muted">
+          Kontroll verifiserer at prosjektert løsning er utført riktig og dokumentert.
+          Kontrollpunkter i eksempelet:
+        </p>
+        <ul>
+          <li>Underlag og fall (før membran)</li>
+          <li>Membransystem og tilslutninger (før flis)</li>
+          <li>Gjennomføringer, lekkasjesikring og funksjonstest</li>
+        </ul>
+        <p class="muted" style="margin-top:10px">
+          Avvik lukkes først når tiltak er verifisert.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>4) FDV (overlevering som tåler drift)</h2>
+        <p class="muted">
+          FDV samler det som faktisk er bygget, med referanser til kontroll og prosjektering.
+          I eksempelet inngår:
+        </p>
+        <ul>
+          <li>Produktdokumentasjon (referansepakke)</li>
+          <li>Vedlikehold og garantier</li>
+          <li>Avvik/forbehold og revisjonsoversikt</li>
+        </ul>
+        <p class="muted" style="margin-top:10px">
+          Drift skal alltid kunne peke til siste gjeldende revisjon.
+        </p>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Eksempel: enkel leveranseliste (illustrasjon)</h2>
+      <p class="muted">
+        Dette er en minimal oversikt som viser hva som typisk leveres – med sporbarhet.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Del</th>
+            <th>Hva</th>
+            <th>Sporbarhet</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Prosjektering</td>
+            <td>Prosjekteringsgrunnlag og valg (objekt/sone, krav, forutsetninger)</td>
+            <td>Dokument-ID + versjon + revisjon</td>
+          </tr>
+          <tr>
+            <td>Utførelse</td>
+            <td>Trinnvis gjennomføring + egenkontroll før lukking</td>
+            <td>Kontrollpunkt-ID + dato + ansvar + foto</td>
+          </tr>
+          <tr>
+            <td>Kontroll</td>
+            <td>Verifikasjon mot kriterier + avvik og lukking</td>
+            <td>OK/Ikke OK + kriterium + signatur</td>
+          </tr>
+          <tr>
+            <td>FDV</td>
+            <td>Overleveringspakke (prod, garanti, vedlikehold, avvik, revisjoner)</td>
+            <td>Leveranseliste + revisjonsoversikt</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Hvor går du videre</h2>
+      <ul>
+        <li><a href="/bruk/">Bruk</a> – praktisk steg-for-steg</li>
+        <li><a href="/system/">System</a> – struktur og dokumentlogikk</li>
+        <li><a href="/revisjoner/">Revisjoner</a> – hva som har endret seg og hvorfor</li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="muted">
+      NORMIA · Eksempel er illustrasjon · Styrende dokumenter ligger under <a href="/metodikk/">Metodikk</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
