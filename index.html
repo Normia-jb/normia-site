@@ -3,79 +3,722 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NORMIA – Hjem</title>
-  <meta name="description" content="NORMIA: system og metodikk for prosjektering, utførelse, kontroll og FDV – med sporbarhet og revisjonsstyring." />
-
+  <title>NORMIA</title>
+  <meta name="description" content="NORMIA gjør dokumentasjon til et resultat av arbeidet, ikke en ekstra oppgave." />
   <style>
-    :root { --max: 880px; }
-    body { margin:0; font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
-    header, main, footer { padding: 24px; }
-    .wrap { max-width: var(--max); margin: 0 auto; }
-    nav a { margin-right: 14px; text-decoration:none; color:#111; }
-    nav a:hover { text-decoration:underline; }
-    .meta { color:#444; font-size: 14px; }
-    h1 { font-size: 34px; line-height:1.15; margin: 10px 0 8px; }
-    h2 { margin-top: 26px; }
-    .card { border:1px solid #ddd; border-radius: 12px; padding: 16px; }
-    .pill { display:inline-block; padding: 2px 10px; border:1px solid #ddd; border-radius: 999px; font-size: 12px; color:#444; }
-    footer { border-top:1px solid #eee; }
+    :root {
+      color-scheme: light;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --max: 1120px;
+      --bg: #ffffff;
+      --surface: #f7f9fc;
+      --panel: #ffffff;
+      --text: #111827;
+      --muted: #4b5563;
+      --accent: #2f5f8a;
+      --accent-soft: #e8eff8;
+      --border: #d6dce7;
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header,
+    main,
+    footer {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    header {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .nav a {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      gap: 32px;
+      padding-top: 16px;
+      padding-bottom: 40px;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-subtitle {
+      margin: 24px 0 24px;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--accent);
+      padding: 12px 16px;
+      background: var(--accent-soft);
+      border-radius: 999px;
+      border: 1px solid rgba(47,95,138,0.16);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid transparent;
+      box-shadow: 0 18px 40px rgba(47,95,138,0.15);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(47,95,138,0.2);
+      color: var(--accent);
+      background: #fff;
+    }
+
+    .hero-visual {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      min-height: 420px;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .hero-visual .visual-card {
+      width: min(100%, 520px);
+      border-radius: 28px;
+      background: #fff;
+      border: 1px solid rgba(47,95,138,0.12);
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+    }
+
+    .hero-visual .visual-card header {
+      padding: 22px 24px;
+      background: #f7fafc;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .hero-visual .visual-card .status-row {
+      display: flex;
+      gap: 10px;
+      padding: 20px 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-visual .visual-card .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .hero-visual .visual-card .task-list {
+      padding: 0 24px 24px;
+    }
+
+    .hero-visual .visual-card .task-row {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .hero-visual .visual-card .task-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-visual .visual-card .checkbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-visual .visual-card .checkbox::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent);
+      opacity: 0.8;
+    }
+
+    .hero-visual .visual-card .task-label {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .hero-visual .visual-card .details {
+      display: grid;
+      gap: 16px;
+      padding: 0 24px 24px;
+    }
+
+    .hero-visual .visual-card .detail-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    .hero-visual .visual-card .photo-block {
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff 0%, #f5f7fa 100%);
+      border: 1px solid rgba(47,95,138,0.12);
+      text-align: center;
+      color: var(--text);
+    }
+
+    .section {
+      padding: 40px 0;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      line-height: 1.1;
+    }
+
+    .section-copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .trust-panel,
+    .value-panel,
+    .modules-grid,
+    .field-showcase {
+      display: grid;
+      gap: 24px;
+    }
+
+    .trust-panel {
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+    }
+
+    .trust-card {
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      text-align: center;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .value-panel {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .value-step {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      text-align: center;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .value-step:not(:last-child) {
+      position: relative;
+    }
+
+    .value-step:not(:last-child)::after {
+      content: '↓';
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .field-showcase {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+    }
+
+    .showcase-copy {
+      max-width: 550px;
+    }
+
+    .showcase-copy ul {
+      display: grid;
+      gap: 12px;
+      padding-left: 0;
+      list-style: none;
+      margin: 0;
+    }
+
+    .showcase-copy li {
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .showcase-mockup {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+    }
+
+    .showcase-mockup .mockup {
+      background: #fff;
+      border-radius: 28px;
+      border: 1px solid rgba(47,95,138,0.12);
+      overflow: hidden;
+      box-shadow: 0 32px 65px rgba(15, 23, 42, 0.08);
+    }
+
+    .mockup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 22px;
+      background: #f7fafc;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .mockup-header span {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .mockup-body {
+      padding: 22px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .mockup-line {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .mockup-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .mockup-item span {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .module-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .module-card {
+      padding: 28px;
+      background: var(--surface);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      min-height: 240px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .module-card.primary {
+      border-color: rgba(47,95,138,0.25);
+      background: #f2f7ff;
+    }
+
+    .module-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .module-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .module-card .label {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(47,95,138,0.08);
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .pilot-panel {
+      padding: 36px;
+      background: #f4f7fb;
+      border-radius: 28px;
+      border: 1px solid rgba(47,95,138,0.12);
+      text-align: center;
+    }
+
+    .pilot-panel p {
+      color: var(--muted);
+      margin: 0 auto 24px;
+      max-width: 620px;
+    }
+
+    .footer {
+      padding: 24px 0 40px;
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+      display: grid;
+      gap: 18px;
+      color: var(--muted);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .footer-small {
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        display: block;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .field-showcase,
+      .value-panel,
+      .modules-grid,
+      .trust-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        padding: 24px;
+      }
+
+      .mockup-header,
+      .hero-visual .visual-card .status-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .mockup-body,
+      .hero-visual .visual-card .details {
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      header,
+      main,
+      footer {
+        padding: 20px 16px;
+      }
+
+      .hero-title {
+        font-size: 2.6rem;
+      }
+
+      .hero-subtitle,
+      .section-copy,
+      .pilot-panel p {
+        font-size: 1rem;
+      }
+
+      .trust-card,
+      .value-step,
+      .module-card,
+      .showcase-mockup,
+      .hero-visual .visual-card {
+        border-radius: 20px;
+      }
+    }
   </style>
 </head>
 <body>
 <header>
-  <div class="wrap">
-    <div class="meta"><span class="pill">NORMIA v1.0</span> · Gjeldende versjon: se <a href="/revisjoner/">Revisjoner</a></div>
-    <h1>NORMIA</h1>
-    <div class="meta">Metodikk og system for prosjektering, utførelse, kontroll og FDV – med sporbarhet og revisjon.</div>
-
-    <nav style="margin-top:14px">
-      <a href="/system/">System</a>
-      <a href="/metodikk/">Metodikk</a>
-      <a href="/eksempel/">Eksempel</a>
-      <a href="/bruk/">Bruk</a>
-      <a href="/revisjoner/">Revisjoner</a>
+  <div>
+    <nav class="nav">
+      <a href="/">Hjem</a>
+      <a href="/plattform/">Plattform</a>
+      <a href="/resources/">Ressurser</a>
+      <a href="/contact/">Kontakt</a>
     </nav>
   </div>
 </header>
-
 <main>
-  <div class="wrap">
-
-    <div class="card">
-      <h2>Digital grunnmur</h2>
-      <p>NORMIA er et strukturert system for å bygge sammen prosjektering, utførelse, kontroll og FDV – slik at krav blir utført, kontrollert og dokumentert med sporbarhet.</p>
-      <p class="meta">Hjem gir oversikt. Detaljer ligger på sidene under.</p>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-title">BYGG PROSJEKTER. IKKE PAPIRARBEID.</div>
+      <p class="hero-subtitle">NORMIA gjør dokumentasjon til et resultat av arbeidet, ikke en ekstra oppgave.</p>
+      <div class="hero-meta">Task → Execution → Photo → Control → Documentation → FDV</div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/contact/">Book Demo</a>
+        <a class="button button-secondary" href="/plattform/">Se plattformen</a>
+      </div>
     </div>
+    <div class="hero-visual">
+      <div class="visual-card">
+        <header>Field Worker</header>
+        <div class="status-row">
+          <div class="pill">Pågående oppgave</div>
+          <div style="color: var(--muted); font-size: 0.95rem;">Byggegrop 7A</div>
+        </div>
+        <div class="task-list">
+          <div class="task-row">
+            <div class="checkbox"></div>
+            <div class="task-label">Sikre armatur og rørføringer</div>
+          </div>
+          <div class="task-row">
+            <div class="checkbox"></div>
+            <div class="task-label">Kontrollpunkt: fundament</div>
+          </div>
+          <div class="task-row">
+            <div class="checkbox"></div>
+            <div class="task-label">Ta bilde av skjøter</div>
+          </div>
+        </div>
+        <div class="details">
+          <div class="detail-row">
+            <span>Kontrollpunkt</span>
+            <strong>Fundament</strong>
+          </div>
+          <div class="detail-row">
+            <span>Bilde</span>
+            <strong>Skjøte dokumentasjon</strong>
+          </div>
+          <div class="detail-row">
+            <span>Avvik</span>
+            <strong>Ingen registrert</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Navigasjon</h2>
-    <div class="card">
+  <section class="section">
+    <h2 class="section-title">Utviklet av fagfolk fra bygg- og rehabiliteringsbransjen.</h2>
+    <p class="section-copy">Erfaring fra prosjektledelse, rehabilitering, kvalitetssikring, FDV og utførelse ligger til grunn for et verktøy som fungerer på byggeplassen.</p>
+    <div class="trust-panel">
+      <div class="trust-card">Prosjektledelse</div>
+      <div class="trust-card">Rehabilitering</div>
+      <div class="trust-card">Kvalitetssikring</div>
+      <div class="trust-card">FDV</div>
+      <div class="trust-card">Utførelse</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Slik henger prosessen sammen</h2>
+    <p class="section-copy">NORMIA organiserer arbeidet i en enkel, synlig kjede fra oppgave til levering.</p>
+    <div class="value-panel">
+      <div class="value-step">Task</div>
+      <div class="value-step">Execution</div>
+      <div class="value-step">Photo</div>
+      <div class="value-step">Control</div>
+      <div class="value-step">Documentation</div>
+      <div class="value-step">FDV</div>
+    </div>
+  </section>
+
+  <section class="section field-showcase">
+    <div class="showcase-copy">
+      <h2 class="section-title">Field Worker gir den tydelige arbeidsflyten på byggeplassen.</h2>
+      <p class="section-copy">En enkel mobile-first visning samler oppgaver, kontrollpunkter, bilder og avvik, slik at dokumentasjonen følger arbeidet direkte.</p>
       <ul>
-        <li><a href="/system/">System</a> – hvordan NORMIA er bygget og henger sammen</li>
-        <li><a href="/metodikk/prosjektering/">Metodikk</a> – normerte leveranser og krav</li>
-        <li><a href="/bruk/">Bruk</a> – praktisk bruk og arbeidsflyt</li>
-        <li><a href="/eksempel/">Eksempel</a> – et konkret miniprosjekt som viser helheten</li>
-        <li><a href="/revisjoner/">Revisjoner</a> – endringslogg og historikk</li>
+        <li>Oppgave – se hva som skal gjøres og kryss av i samme arbeidsflyt.</li>
+        <li>Kontrollpunkt – knytt inspeksjon til riktig del av prosjektet.</li>
+        <li>Bilde – dokumenter utførelsen fra mobil.</li>
+        <li>Avvik – registrer og følg opp uten å bytte system.</li>
       </ul>
+      <div class="hero-actions" style="margin-top: 20px;">
+        <a class="button button-primary" href="/plattform/field-worker/">Se Field Worker-flyten</a>
+      </div>
     </div>
-
-    <h2>Moduler</h2>
-    <div class="card">
-      <ul>
-        <li><a href="/metodikk/prosjektering/">Prosjektering</a></li>
-        <li><a href="/metodikk/utfoerelse/">Utførelse</a></li>
-        <li><a href="/metodikk/kontroll/">Kontroll</a></li>
-        <li><a href="/metodikk/fdv/">FDV</a></li>
-      </ul>
+    <div class="showcase-mockup">
+      <div class="mockup">
+        <div class="mockup-header">
+          <span>Mobil feltverktøy</span>
+          <span class="pill">Oppgave 4/7</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-line">
+            <div class="mockup-item">
+              <span>Oppgave</span>
+              <strong>Montering av dørkarm</strong>
+            </div>
+          </div>
+          <div class="mockup-line">
+            <div class="mockup-item">
+              <span>Kontrollpunkt</span>
+              <strong>Tetting og justering</strong>
+            </div>
+          </div>
+          <div class="mockup-line">
+            <div class="mockup-item">
+              <span>Bilde</span>
+              <strong>Foto av karmskjøt</strong>
+            </div>
+          </div>
+          <div class="mockup-line">
+            <div class="mockup-item">
+              <span>Avvik</span>
+              <strong>Ingen avvik funnet</strong>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
+  <section class="section">
+    <h2 class="section-title">Plattformmoduler som støtter arbeidsflyten.</h2>
+    <p class="section-copy">NORMIA består av tre støttende moduler. Feltverktøyet får mest plass, men hele plattformen jobber sammen for å holde dokumentasjonen i kontekst.</p>
+    <div class="modules-grid">
+      <div class="module-card primary">
+        <div class="label">Field Worker</div>
+        <h3>Feltutførelse og dokumentasjon</h3>
+        <p>Oppgaver, kontrollpunkter, bilder og avvik samles i en mobil arbeidsflyt som gir direkte dokumentasjon fra byggeplassen.</p>
+      </div>
+      <div class="module-card">
+        <div class="label">Knowledge Engine</div>
+        <h3>Register og metadata</h3>
+        <p>Informasjon om prosjektet og komponentene lagres i ett register, slik at dokumentasjonen kan gjenbrukes uten dobbeltarbeid.</p>
+      </div>
+      <div class="module-card">
+        <div class="label">Supervisor</div>
+        <h3>Kontroll og kvalitet</h3>
+        <p>Oversikt over kontrollpunkter og avvik gjør det tydelig hva som er godkjent og hva som krever oppfølging.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="pilot-panel">
+      <h2 class="section-title">Ta kontakt om et pilotprosjekt.</h2>
+      <p>Vi samarbeider med byggeprosjekter som ønsker færre håndoff, bedre dokumentasjon og en jevnere vei til FDV-leveranse. Fortell oss om prosjektet, så viser vi hvordan NORMIA kan passe inn i arbeidsflyten.</p>
+      <a class="button button-primary" href="/contact/">Kontakt NORMIA om pilotprosjekt</a>
+      <p style="margin-top: 16px; color: var(--muted);">E-post: info@normia.no</p>
+    </div>
+  </section>
 </main>
-
-
-<footer>
-  <div class="wrap meta">
-    <div>NORMIA v1.0 · Endringer kun via formell revisjon · <a href="/revisjoner/">Revisjonsoversikt</a></div>
+<footer class="footer">
+  <div class="footer-nav">
+    <span>NORMIA</span>
+    <a href="/plattform/">Plattform</a>
+    <a href="/resources/">Ressurser</a>
+    <a href="/contact/">Kontakt</a>
   </div>
+  <div class="footer-small">NORMIA støtter dokumentasjon og leveranse for byggeprosjekter.</div>
 </footer>
 </body>
 </html>
